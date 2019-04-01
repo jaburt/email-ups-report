@@ -1,0 +1,46 @@
+Email Title: UPS Status Report for FreeNAS
+
+Email Body:
+
+UPS report for: American Power Conversion  Smart-UPS 1500 on /dev/ugen0.2
+
+Time: 2019-04-01 01:00:00
+
+UPS Status: OL
+Battery Runtime: 3600 s
+Battery Charge: 100 %
+
+*** Full extract of: upsc YOUR_UPS_NAME@localhost
+
+battery.charge: 100
+battery.charge.low: 10
+battery.charge.warning: 50
+battery.runtime: 3600
+battery.runtime.low: 120
+battery.type: PbAc
+battery.voltage: 27.3
+battery.voltage.nominal: 24.0
+device.mfr: American Power Conversion 
+device.model: Smart-UPS 1500
+device.serial: 3S1705X02636  
+device.type: ups
+driver.name: usbhid-ups
+driver.parameter.pollfreq: 30
+driver.parameter.pollinterval: 2
+driver.parameter.port: /dev/ugen0.2
+driver.parameter.synchronous: no
+driver.version: 2.7.4
+driver.version.data: APC HID 0.96
+driver.version.internal: 0.41
+ups.beeper.status: enabled
+ups.delay.shutdown: 20
+ups.firmware: UPS 09.3 / ID=18
+ups.mfr: American Power Conversion 
+ups.mfr.date: 2017/02/02
+ups.model: Smart-UPS 1500
+ups.productid: 0003
+ups.serial: 3S1705X02636  
+ups.status: OL
+ups.timer.reboot: -1
+ups.timer.shutdown: -1
+ups.vendorid: 051d
