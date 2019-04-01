@@ -9,7 +9,7 @@
 logfile="/tmp/ups_report.tmp"
 email="YOUR_EMAIL_ADDRESS"
 subject="UPS Status Report for FreeNAS"
-ups="APC_Smart-UPS_1500@localhost"
+ups="YOUR_UPS_NAME@localhost"
 
 ### Set email headers ###
 (
