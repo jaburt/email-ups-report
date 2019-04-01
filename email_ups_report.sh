@@ -1,9 +1,9 @@
 #!/bin/sh
 
 ## Notes ##
-## You can heavily personalize the attributes depending on your particular UPS, use: ## 
-## upsc your_ups_name@localhost ## to see all the 
-## attributes and pick the ones you want ##
+## You can heavily personalize the attributes depending on your particular UPS, use:
+## upsc your_ups_name@localhost to see all the 
+## attributes and pick the ones you want
 
 ### Parameters ###
 logfile="/tmp/ups_report.tmp"
@@ -40,3 +40,5 @@ ups="YOUR_UPS_NAME@localhost"
 ### Send report ###
 sendmail -t < ${logfile}
 rm ${logfile}
+
+### End ###
