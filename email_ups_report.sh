@@ -1,24 +1,20 @@
 #!/bin/sh
 
 ## Notes ##
-## You can heavily personalize the attributes depending on your particular UPS, use:
-## upsc your_ups_name@localhost to see all the 
-## attributes and pick the ones you want
+## You can heavily personalize the attributes depending on your particular UPS, use: ## 
+## upsc your_ups_name@localhost ## to see all the attributes and pick the ones you want ##
+
+## emailing ##
+# This script now uses "sendemail.py" as "sendmail" has been removed from TrueNAS Scale:
+# Script can be downloaded from: https://github.com/oxyde1989/standalone-tn-send-email.
+# Edit the "emailscript" with the location of the downloaded script (including script name).
 
 ### Parameters ###
 logfile="/tmp/ups_report.tmp"
-email="YOUR_EMAIL_ADDRESS"
+email="your@eaill.address"
 subject="UPS Status Report for FreeNAS"
-ups="YOUR_UPS_NAME@localhost"
-
-### Set email headers ###
-(
-    echo "To: ${email}"
-    echo "Subject: ${subject}"
-    echo "Content-Type: text/html"
-    echo "MIME-Version: 1.0"
-    echo -e "\r\n" 
-) > ${logfile}
+ups="APC_Smart-UPS_1500@localhost"
+emailscript="/mnt/tank/scripts/sendemail.py"
 
 ### Set email body ###
 (
@@ -35,10 +31,12 @@ ups="YOUR_UPS_NAME@localhost"
     echo ""
     echo "$(upsc ${ups})"
     echo "</pre>" 
-) >> ${logfile}
+) > ${logfile}
 
 ### Send report ###
-sendmail -t < ${logfile}
-rm ${logfile}
+python3 "$emailscript" \
+    --subject "$subject" \
+    --to_address "$email" \
+    --mail_body_html "$logfile" \
 
-### End ###
+rm ${logfile}
